@@ -31,7 +31,8 @@ namespace SuperheroCreator.Controllers
         // GET: Superhero/Create
         public ActionResult Create()
         {
-            return View();
+            Superhero superhero = new Superhero();
+            return View(superhero);
         }
 
         // POST: Superhero/Create
@@ -42,7 +43,8 @@ namespace SuperheroCreator.Controllers
             try
             {
                 // TODO: Add insert logic here
-                
+                _context.Superheroes.Add(superhero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -83,7 +85,7 @@ namespace SuperheroCreator.Controllers
         // POST: Superhero/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, Superhero superher)
+        public ActionResult Delete(int id, Superhero superhero)
         {
             try
             {
