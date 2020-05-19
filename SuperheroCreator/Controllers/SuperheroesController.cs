@@ -9,10 +9,10 @@ using SuperheroCreator.Models;
 
 namespace SuperheroCreator.Controllers
 {
-    public class SuperheroController : Controller
+    public class SuperheroesController : Controller
     {
         public ApplicationDbContext _context;
-        public SuperheroController(ApplicationDbContext context)
+        public SuperheroesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -103,7 +103,7 @@ namespace SuperheroCreator.Controllers
                 //CHECK THIS - var superheroRemoval
                 //change return?
                 var superheroRemoval = _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
-                _context.Superheroes.Remove(superhero);
+                _context.Superheroes.Remove(superheroRemoval);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
