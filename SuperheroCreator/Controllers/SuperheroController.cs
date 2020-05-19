@@ -19,13 +19,16 @@ namespace SuperheroCreator.Controllers
         // GET: Superhero
         public ActionResult Index()
         {
-            return View();
+            var superhero = _context.Superheroes.ToList();
+            return View(superhero);
         }
 
         // GET: Superhero/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            //query the superheroes table and find the object with a primary key == id
+            var superhero = _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
+            return View(superhero);
         }
 
         // GET: Superhero/Create
@@ -43,6 +46,7 @@ namespace SuperheroCreator.Controllers
             try
             {
                 // TODO: Add insert logic here
+                //change return?
                 _context.Superheroes.Add(superhero);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
@@ -56,7 +60,8 @@ namespace SuperheroCreator.Controllers
         // GET: Superhero/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var superhero = _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
+            return View(superhero);
         }
 
         // POST: Superhero/Edit/5
@@ -67,7 +72,10 @@ namespace SuperheroCreator.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                //change return?
+                _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
+                _context.Superheroes.Update(superhero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -79,7 +87,9 @@ namespace SuperheroCreator.Controllers
         // GET: Superhero/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            //query for object to be deleted
+            var superhero = _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
+            return View(superhero);
         }
 
         // POST: Superhero/Delete/5
@@ -90,7 +100,11 @@ namespace SuperheroCreator.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                //CHECK THIS - var superheroRemoval
+                //change return?
+                var superheroRemoval = _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
+                _context.Superheroes.Remove(superhero);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
