@@ -45,8 +45,6 @@ namespace SuperheroCreator.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-                //change return?
                 _context.Superheroes.Add(superhero);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
@@ -71,8 +69,6 @@ namespace SuperheroCreator.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-                //change return?
                 _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
                 _context.Superheroes.Update(superhero);
                 _context.SaveChanges();
@@ -99,9 +95,6 @@ namespace SuperheroCreator.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-                //CHECK THIS - var superheroRemoval
-                //change return?
                 var superheroRemoval = _context.Superheroes.Where(i => i.Id == id).FirstOrDefault();
                 _context.Superheroes.Remove(superheroRemoval);
                 _context.SaveChanges();
