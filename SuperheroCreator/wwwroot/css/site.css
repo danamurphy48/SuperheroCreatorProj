@@ -73,11 +73,16 @@ body {
 .frontpage-image {
     background-image: url("images/CaptainMarvel.jpg");
     height: auto;
-    max-width: 100%;
+    width: 100%;
     background-size: cover;
     background-repeat: no-repeat; 
     background-position: center;
 }
 .home-image {
-
+    background-image: url("images/CptMarvel.jpg");
+    max-height: 300px;
+    width:auto;
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
